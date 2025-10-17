@@ -1,0 +1,152 @@
+:root {
+    --primary-start: #004aad; 
+    --primary-end: #003377; 
+    --accent-color: #FFC300; 
+    --accent-hover: #FFD700; 
+    --neumo-dark: #b8c0c8;
+    --neumo-light: #ffffff;
+    --background-color: #e0e5ec;
+    
+    --text-dark: #222;
+    --text-light: #fff;
+    --box-shadow-main: 15px 15px 30px var(--neumo-dark), -15px -15px 30px var(--neumo-light);
+}
+
+/* ================================== */
+/* GENERAL STYLES */
+/* ================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+body {
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+#message-box {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.message.success {
+    background-color: #4CAF50;
+    color: white;
+}
+.message.error {
+    background-color: #F44336;
+    color: white;
+}
+
+/* ================================== */
+/* FORM CONTAINER (BOX WRAPPER) */
+/* ================================== */
+.box-wrapper {
+    max-width: 500px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 30px;
+    background: var(--background-color);
+    box-shadow: var(--box-shadow-main);
+    margin: 50px 0;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--primary-end);
+    margin-bottom: 35px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================== */
+/* FORM FIELDS (NEUMORPHISM) */
+/* ================================== */
+.form-group {
+    margin-bottom: 25px;
+    padding: 0 5px;
+    border-radius: 25px;
+    box-shadow: inset 3px 3px 6px var(--neumo-dark), inset -3px -3px 6px var(--neumo-light);
+    display: flex;
+    align-items: center;
+}
+
+.form-group i {
+    color: var(--primary-start);
+    padding-left: 15px;
+    font-size: 1.2em; 
+}
+
+.form-group input,
+.form-group select {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1em;
+    color: var(--text-dark);
+    padding: 18px 10px;
+    width: 100%;
+    border-radius: 25px;
+    appearance: none;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group:hover {
+    box-shadow: inset 3px 3px 6px var(--neumo-dark), inset -3px -3px 6px var(--neumo-light), 
+                0 0 5px 1px var(--accent-color);
+}
+
+.form-group:focus-within {
+    box-shadow: inset 2px 2px 4px var(--neumo-dark), inset -2px -2px 4px var(--neumo-light), 
+                0 0 0 3px var(--accent-color); 
+}
+
+/* ================================== */
+/* SUBMIT BUTTON */
+/* ================================== */
+.submit-button {
+    width: 100%;
+    height: 55px;
+    margin-top: 30px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark); 
+    text-align: center;
+    background: var(--accent-color);
+    box-shadow: 6px 6px 12px var(--neumo-dark), -6px -6px 12px var(--neumo-light);
+}
+
+.submit-button:hover {
+    background: var(--accent-hover); 
+    color: var(--text-dark);
+    transform: translateY(1px); 
+    box-shadow: inset 3px 3px 8px #d4a700, inset -3px -3px 8px var(--neumo-light);
+}
+
+#loading-state {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+}

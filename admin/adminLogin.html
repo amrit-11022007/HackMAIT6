@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="admin_signup.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+
+<body>
+    <div id="message-box"></div>
+
+    <div class="box-wrapper">
+        <h2 class="form-title">Government Admin Access</h2>
+        <div id="loading-state" style="display:none;">Initializing Portal Services...</div>
+
+        <form id="signup-form">
+
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Government Email Address" required>
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password" minlength="6" required>
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-city"></i>
+                <select name="department" required>
+                    <option value="" disabled selected>Select Your Department/Agency</option>
+                    <option value="public_works">Public Works Department</option>
+                    <option value="city_planning">City Planning Commission</option>
+                    <option value="environmental_services">Environmental Services</option>
+                    <option value="traffic_safety">Traffic & Public Safety</option>
+                    <option value="code_enforcement">Code Enforcement & Bylaws</option>
+                    <option value="general_admin">General Administration</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-user-shield"></i>
+                <input type="text" name="admin-code" id="code" placeholder="Unique Administrator Code" required>
+            </div>
+
+            <button type="submit" class="submit-button">Login</button>
+        </form>
+    </div>
+</body>
+<script>
+    const form = document.getElementById('signup-form');
+    const messageBox = document.getElementById('message-box');
+    const loadingState = document.getElementById('loading-state');
+    const submitButton = document.querySelector('.submit-button');
+
+    // keep references, don't read .value here
+    const emailEl = document.getElementById('email');
+    const passwordEl = document.getElementById('password');
+    const codeEl = document.getElementById('code');
+
+    const Data = [{
+            email: "publicwork@gmail.com",
+            password: "publicwork",
+            code: 123456
+        },
+        {
+            email: "cityplanningcommison@gmail.com",
+            password: "cityplanningcommison",
+            code: 123456
+        },
+        {
+            email: "evironmentalservices@gmail.com",
+            password: "evironmentalservices",
+            code: 123456
+        },
+        {
+            email: "traffic&publicsafety@gmail.com",
+            password: "traffic&publicsafety",
+            code: 123456
+        },
+        {
+            email: "condeenforcement@gmail.com",
+            password: "condeenforcement",
+            code: 123456
+        },
+        {
+            email: "generaladministration@gmail.com",
+            password: "generaladministration",
+            code: 123456
+        }
+    ];
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        messageBox.innerHTML = '';
+        loadingState.style.display = 'block';
+        submitButton.disabled = true;
+
+        setTimeout(() => {
+            loadingState.style.display = 'none';
+            submitButton.disabled = false;
+
+            // read current values here
+            const adminData = {
+                email: emailEl.value.trim(),
+                password: passwordEl.value,
+                code: parseInt(codeEl.value, 10)
+            };
+
+            let flag = 0;
+            for (let i = 0; i < Data.length; i++) {
+                if (Data[i].email === adminData.email && Data[i].password === adminData.password &&
+                    Data[i].code === adminData.code) {
+                    console.log(Data[i]);
+                    console.log(adminData);
+                    flag = 1;
+                    break;
+                } else {
+                    flag = 0;
+                }
+            }
+
+            if (flag === 1) {
+                window.location.href = 'adminDashboard.html';
+            } else {
+                alert("Access Denied. Invalid Credentials.");
+            }
+        }, 1500);
+    });
+</script>
+
+</html>
