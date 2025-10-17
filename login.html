@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Citizen Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>Citizen Login Portal</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="complaint.html">My Complaint</a></li>
+        <li><a href="community.html">Community Complaints</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="loginbtn"><a href="login.html" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="page-title">User Login</h2>
+    <form id="loginForm">
+      <label for="aadhar">Aadhar Number:</label>
+      <input type="text" id="aadhar" maxlength="12" required placeholder="Enter 12-digit Aadhar">
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" maxlength="10" required placeholder="Enter 10-digit phone number">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required placeholder="Enter password">
+
+      <button type="submit">Login</button>
+    </form>
+    <span>New user? <a href="signup.html" style="color: #0073e6;">Sign in</a></span>
+  </div>
+
+  <footer>© 2025 Citizen Complaint Portal | Designed for Public Welfare</footer>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const aadhar = document.getElementById('aadhar').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!/^\d{12}$/.test(aadhar)) return alert("Invalid Aadhar number!");
+      if (!/^\d{10}$/.test(phone)) return alert("Invalid phone number!");
+
+      const savedUser = JSON.parse(localStorage.getItem('user'));
+      const loginbtn = document.getElementById('loginbtn');
+      if (savedUser && password === savedUser.email && password === savedUser.password) {
+        alert("Login successful!");
+      } else {
+        alert("Invalid credentials.")
+      }
+
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+
+</html>

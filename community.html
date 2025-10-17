@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Community Complaints</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>Citizen Complaint Portal</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="complaint.html">My Complaint</a></li>
+        <li><a href="community.html">Community Complaints</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="page-title">Community Complaints</h2>
+    <div id="complaints"></div>
+  </div>
+
+  <script>
+    const complaintsDiv = document.getElementById('complaints');
+    const complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+
+    complaints.forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'complaint';
+      div.innerHTML = `<h3>${c.title}</h3>
+    <p>${c.description}</p>
+    <strong>Department:</strong> ${c.department}<br>
+    <em>Status: ${c.status || 'Pending'}</em>`;
+      complaintsDiv.appendChild(div);
+    });
+  </script>
+
+</body>
+
+</html>

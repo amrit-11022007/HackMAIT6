@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Complaint</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h1>Citizen Complaint Portal</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="complaint.html">My Complaint</a></li>
+        <li><a href="community.html">Community Complaints</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="page-title">Submit Your Complaint</h2>
+    <form id="complaintForm">
+      <label>Title:</label>
+      <input type="text" id="title" required>
+
+      <label>Description:</label>
+      <textarea id="description" rows="4" required></textarea>
+
+      <label>Department:</label>
+      <select id="department">
+        <option>Municipal</option>
+        <option>Water Supply</option>
+        <option>Electricity</option>
+        <option>Roads</option>
+        <option>Sanitation</option>
+      </select>
+
+      <label>Upload Images:</label>
+      <input type="file" id="images" multiple accept="image/*">
+      <div class="image-preview" id="preview"></div>
+
+      <button type="submit">Submit Complaint</button>
+    </form>
+  </div>
+
+  <script>
+    const preview = document.getElementById('preview');
+    document.getElementById('images').addEventListener('change', e => {
+      preview.innerHTML = '';
+      Array.from(e.target.files).forEach(file => {
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+        preview.appendChild(img);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
