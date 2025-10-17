@@ -4,23 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Citizen Portal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <h1>Citizen Login Portal</h1>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="complaint.html">My Complaint</a></li>
-                <li><a href="community.html">Community Complaints</a></li>
-                <li><a href="./about us/about.html">About</a></li>
-                <li><a href="./contact/contact.html">Contact</a></li>
-                <li><a href="login.html" class="login-btn">Login</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <div class="container">
         <h2 class="page-title">User Login</h2>
@@ -40,9 +27,11 @@
             <label for="password">Create Password:</label>
             <input type="password" id="password" required placeholder="Enter password">
 
-            <button type="submit">Signup</button>
+            <div class="loginsignup">
+                <button type="submit">Signup</button>
+            <span>Already Registerd? <a href="login.html" style="color: #0073e6;">Login</a></span>
+            </div>
         </form>
-        <span>Already Registerd? <a href="login.html" style="color: #0073e6;">Login</a></span>
 
     </div>
 
