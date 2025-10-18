@@ -15,7 +15,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background: #004aad;
+  background: #004D40;
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
@@ -30,7 +30,7 @@ body {
 
 .navbar .back-btn {
   background: #fff;
-  color: #004aad;
+  color: #004D40;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
@@ -60,7 +60,7 @@ body {
 }
 
 .search-bar input:focus {
-  border-color: #004aad;
+  border-color: #004D40;
 }
 
 /* Slideshow */
@@ -100,7 +100,7 @@ body {
 .page-title {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #004aad;
+  color: #004D40;
 }
 
 .complaints-list {
@@ -137,7 +137,7 @@ body {
 }
 
 .details h3 {
-  color: #004aad;
+  color: #004D40;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
 }

@@ -18,7 +18,7 @@ body {
 }
 
 .back {
-    background-color: #2da0a8;
+    background-color: #00796B;
     color: white;
     border: none;
     cursor: pointer;
@@ -43,7 +43,7 @@ body {
     position: relative;
     overflow: hidden;
     width: 80vw;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +82,7 @@ body {
 }
 
 button {
-    background-color: #2da0a8;
+    background-color: #00796B;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -95,7 +95,7 @@ button {
 }
 
 footer {
-    background-color: #2da0a8;
+    background-color: #004D40;
     color: #eee;
     width: 100%;
     display: flex;
@@ -123,6 +123,7 @@ footer {
         align-items: flex-start;
         margin-top: 10px;
     }
+
     .loginForm {
         width: 95%;
         padding: 10px 20px;

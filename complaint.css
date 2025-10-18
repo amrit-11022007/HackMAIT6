@@ -22,7 +22,7 @@ body {
 }
 
 .back {
-    background-color: #2da0a8;
+    background-color: #00796B;
     color: white;
     border: none;
     cursor: pointer;
@@ -90,7 +90,7 @@ input[type='file'] {
 }
 
 .submitbtn {
-    background-color: #2da0a8;
+    background-color: #00796B;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
