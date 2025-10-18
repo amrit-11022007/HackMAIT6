@@ -18,7 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: max-content;
+    height: 100vh;
 }
 
 .back {
@@ -54,11 +54,11 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 40px auto;
+    margin: 40px 20px;
     overflow-y: scroll;
 }
 
-#complaintForm {
+.complaintForm {
     margin: 20px auto;
     background-color: #fff;
     display: grid;
@@ -103,6 +103,9 @@ input[type='file'] {
     grid-column: span 2;
     height: 40px;
     width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .imagesection {
@@ -113,4 +116,31 @@ input[type='file'] {
 .image-preview img {
     height: 90px;
     width: 90px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: 90vh;
+    }
+    .page-title {
+        margin: 25px auto 10px auto;
+    }
+    .complaintForm {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        gap: 10px;
+        height: 80vh;
+    }
+
+    .complaintForm label {
+        height: 15px;
+    }
+
+    .container input,
+    .container textarea,
+    .container select {
+        height: 50px;
+    }
 }

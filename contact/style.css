@@ -30,14 +30,14 @@ body, input, textarea, button, a {
 /* ================================== */
 #section-wrapper {
     width: 100%;
-    padding: 20px;
+    padding: 20px 60px;
 }
 .box-wrapper {
     position: relative;
-    display: flex; 
-    max-width: 1200px; 
-    margin: auto;
-    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    max-width: 1200px;
+    margin-top: 50px auto;
     border-radius: 30px;
     box-shadow: var(--box-shadow-main); 
     background: var(--background-color);
@@ -47,7 +47,7 @@ body, input, textarea, button, a {
 /* INFO WRAP (LEFT SIDE) */
 /* ================================== */
 .info-wrap {
-    width: 40%;
+    width: 100%;
     padding: 50px 40px;
     border-radius: 30px 0px 0px 30px;
     background: linear-gradient(144deg, var(--primary-start) 0%, var(--primary-end) 100%);
@@ -108,14 +108,15 @@ body, input, textarea, button, a {
 }
 .social-icons li {
     display: inline-block;
+    margin: 2px;
 }
-.social-icons li i {
+.social-icons li a i {
     background: var(--primary-end); 
     color: var(--accent-color);
     padding: 12px;
     font-size: 18px;
     border-radius: 50%;
-    margin: 0px 8px 0px 0px;
+    /* margin: 0px 8px 0px 0px; */
     cursor: pointer;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.1);
 }
@@ -130,7 +131,7 @@ body, input, textarea, button, a {
 /* FORM WRAP (RIGHT SIDE) */
 /* ================================== */
 .form-wrap {
-    width: 60%;
+    width: 100%;
     padding: 50px 35px 50px 35px;
     border-radius: 0px 30px 30px 0px;
     background: var(--background-color);
@@ -233,6 +234,13 @@ body, input, textarea, button, a {
         margin-top: 25px;
         max-width: 95%;
     }
+    .info-wrap .info-details li {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1px;
+    }
 }
 
 @media only screen and (max-width: 850px) {
@@ -249,7 +257,7 @@ body, input, textarea, button, a {
 
 @media only screen and (max-width: 767px) {
     .box-wrapper {
-        width: 100%;
+        grid-template-columns: 100%;
         margin-top: 10px;
         box-shadow: 8px 8px 15px var(--neumo-dark), -8px -8px 15px var(--neumo-light);
     }
@@ -272,7 +280,7 @@ body, input, textarea, button, a {
         width: 100%;
         float: none;
         margin: 15px 0px;
-        padding: 0px 20px;
+        /* padding: 0px 20px; */
     }
     .form-fields .form-group:nth-child(5),
     .submit-button {
@@ -282,5 +290,15 @@ body, input, textarea, button, a {
     .form-title {
         margin-left: 0;
         text-align: center;
+    }
+    .info-wrap .info-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+    }
+    .info-wrap .info-details li {
+        display: inline;
     }
 }

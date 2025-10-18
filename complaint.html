@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit Complaint</title>
   <link rel="stylesheet" href="complaint.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="script.js" defer></script>
 </head>
 
 <body>
-
   <div class="container">
-    <button class="back"><a href="index.html"><i class="fa-solid fa-chevron-left"></i></a></i></button>
+    <button class="back"><a href="index.html"><i class="fa-solid fa-chevron-left"></i></a></button>
     <h2 class="page-title">Submit Your Complaint</h2>
-    <form id="complaintForm">
+
+    <form id="complaintForm" class="complaintForm">
       <label>Title:</label>
       <input type="text" id="title" required>
 
@@ -32,28 +31,69 @@
         <option>Sanitation</option>
       </select>
 
-      <label>Upload Images:</label>
+      <label>Upload Image:</label>
       <span class="imagesection">
-        <input type="file" id="images" multiple accept="image/*">
+        <input type="file" id="images" accept="image/*">
         <div class="image-preview" id="preview"></div>
       </span>
-      <button class="submitbtn" type="submit">Submit Complaint</button>
 
+      <button class="submitbtn" type="submit">Submit Complaint</button>
     </form>
   </div>
 
   <script>
     const preview = document.getElementById('preview');
-    document.getElementById('images').addEventListener('change', e => {
+    const imgInput = document.getElementById('images');
+    let selectedImage = '';
+
+    // Preview uploaded image
+    imgInput.addEventListener('change', e => {
       preview.innerHTML = '';
-      Array.from(e.target.files).forEach(file => {
-        const img = document.createElement('img');
-        img.src = URL.createObjectURL(file);
-        preview.appendChild(img);
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          selectedImage = event.target.result;
+          const img = document.createElement('img');
+          img.src = selectedImage;
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Handle form submission
+    document.getElementById('complaintForm').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const department = document.getElementById('department').value;
+
+      if (!title || !description) {
+        alert('Please fill all required fields.');
+        return;
+      }
+
+      const complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+      complaints.push({
+        title,
+        description,
+        department,
+        image: selectedImage,
+        status: 'Pending',
+        date: new Date().toLocaleString()
       });
+      localStorage.setItem('complaints', JSON.stringify(complaints));
+
+      alert('Complaint submitted successfully!');
+      e.target.reset();
+      preview.innerHTML = '';
+      selectedImage = '';
+
+      // Redirect to community page
+      window.location.href = 'community.html';
     });
   </script>
-
 </body>
-
 </html>

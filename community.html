@@ -3,46 +3,96 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community Complaints</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="community.css">
+  <script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <h1>Citizen Complaint Portal</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="complaint.html">My Complaint</a></li>
-        <li><a href="community.html">Community Complaints</a></li>
-        <li><a href="./about us/about.html">About</a></li>
-        <li><a href="./contact/contact.html">Contact</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="navbar">
+    <img src="Gemini_Generated_Image_xc0zqsxc0zqsxc0z.png" alt="Community complaint portal" class="logo">
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-house"></i> Home</a>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by title or department...">
+  </div>
+
+  <!-- <div class="slideshow">
+    <div class="slides fade">
+      <img src="https://source.unsplash.com/1200x400/?city,cleanliness" alt="">
+      <div class="caption">Community at Work</div>
+    </div>
+    <div class="slides fade">
+      <img src="https://source.unsplash.com/1200x400/?environment,public" alt="">
+      <div class="caption">Together for a Better Society</div>
+    </div>
+    <div class="slides fade">
+      <img src="https://source.unsplash.com/1200x400/?government,help" alt="">
+      <div class="caption">Your Voice Matters</div>
+    </div>
+  </div> -->
 
   <div class="container">
-    <h2 class="page-title">Community Complaints</h2>
-    <div id="complaints"></div>
+    <h2 class="page-title">Issues Raised by Citizens</h2>
+    <div id="complaints" class="complaints-list"></div>
   </div>
 
   <script>
     const complaintsDiv = document.getElementById('complaints');
     const complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+    const searchInput = document.getElementById('searchInput');
 
-    complaints.forEach(c => {
-      const div = document.createElement('div');
-      div.className = 'complaint';
-      div.innerHTML = `<h3>${c.title}</h3>
-    <p>${c.description}</p>
-    <strong>Department:</strong> ${c.department}<br>
-    <em>Status: ${c.status || 'Pending'}</em>`;
-      complaintsDiv.appendChild(div);
+    // Function to render complaints
+    function renderComplaints(list) {
+      complaintsDiv.innerHTML = '';
+      if (list.length === 0) {
+        complaintsDiv.innerHTML = "<p class='no-result'>No complaints found.</p>";
+        return;
+      }
+
+      list.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'complaint-card';
+        div.innerHTML = `
+          <img src="${c.image || 'https://via.placeholder.com/300x200'}" alt="Complaint image">
+          <div class="details">
+            <h3>${c.title}</h3>
+            <p>${c.description}</p>
+            <p><strong>Department:</strong> ${c.department}</p>
+            <p><strong>Status:</strong> <span class="status ${c.status?.toLowerCase() || 'pending'}">${c.status || 'Pending'}</span></p>
+          </div>
+        `;
+        complaintsDiv.appendChild(div);
+      });
+    }
+
+    // Search functionality
+    searchInput.addEventListener('input', e => {
+      const term = e.target.value.toLowerCase();
+      const filtered = complaints.filter(c =>
+        c.title.toLowerCase().includes(term) ||
+        c.department.toLowerCase().includes(term)
+      );
+      renderComplaints(filtered);
     });
-  </script>
 
+    // // Slideshow
+    // let slideIndex = 0;
+    // showSlides();
+    // function showSlides() {
+    //   let slides = document.getElementsByClassName("slides");
+    //   for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+    //   slideIndex++;
+    //   if (slideIndex > slides.length) slideIndex = 1;
+    //   slides[slideIndex - 1].style.display = "block";
+    //   setTimeout(showSlides, 3000);
+    // }
+
+    // Initial render
+    renderComplaints(complaints);
+  </script>
 </body>
 
 </html>

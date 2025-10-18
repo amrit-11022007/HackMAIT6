@@ -3,22 +3,28 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Citizen Complaint Portal</title>
   <link rel="stylesheet" href="index.css">
-  <script src="script.js" defer></script>
 </head>
 
 <body>
   <header>
     <nav class="navbar" id="navbar">
       <img src="Gemini_Generated_Image_xc0zqsxc0zqsxc0z.png" alt="Community complaint portal" class="logo">
-      <ul>
+
+      <!-- Hamburger menu -->
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+      <!-- Sidebar Navigation -->
+      <ul class="nav-links" id="nav-links">
+        <div class="close-btn" id="close-btn">&times;</div>
         <li><a href="index.html">Home</a></li>
         <li><a href="complaint.html">My Complaint</a></li>
         <li><a href="community.html">Community Complaints</a></li>
         <li><a href="./about us/about.html">About</a></li>
         <li><a href="./contact/contact.html">Contact</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
+        <li><a href="./Logins/login.html" class="login-btn">Login</a></li>
         <li><a href="admin/adminLogin.html" class="login-btn">Admin</a></li>
       </ul>
     </nav>
@@ -45,23 +51,60 @@
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
-    <!-- Intro Section -->
-    <section class="home">
-      <h2>Empowering Citizens, Connecting Communities</h2>
-      <p>Report your local issues directly to the concerned department.
-        Together, we make governance transparent and responsive.</p>
-      <div class="buttons">
-        <a href="complaint.html" class="btn btn1">My Complaint</a>
-        <a href="community.html" class="btn btn2 secondary">Community Complaints</a>
-      </div>
-    </section>
   </section>
 
-
+  <!-- Info Section -->
+  <section class="home">
+    <h2>Empowering Citizens, Connecting Communities</h2>
+    <p>Report your local issues directly to the concerned department.
+      Together, we make governance transparent and responsive.</p>
+    <div class="buttons">
+      <a href="complaint.html" class="btn btn1">My Complaint</a>
+      <a href="community.html" class="btn btn2 secondary">Community Complaints</a>
+    </div>
+  </section>
 
   <footer>
     <p>© 2025 Citizen Complaint Portal | Designed for Better Governance by Achievers</p>
   </footer>
+
+  <!-- JS for Slideshow & Sidebar -->
+  <script>
+    // Slideshow
+    let slides = document.querySelectorAll('.slide');
+    let dots = document.querySelectorAll('.dot');
+    let index = 0;
+
+    function showSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('active');
+        dots[idx].classList.remove('active-dot');
+      });
+      slides[i].classList.add('active');
+      dots[i].classList.add('active-dot');
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    showSlide(index);
+    setInterval(nextSlide, 4000);
+
+    // Sidebar
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('close-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+    });
+  </script>
 </body>
 
 </html>
