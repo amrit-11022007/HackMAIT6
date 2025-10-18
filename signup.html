@@ -5,31 +5,30 @@
     <meta charset="UTF-8">
     <title>Login - Citizen Portal</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
     <div class="container">
+        <button class="back"><a href="index.html"><i class="fa-solid fa-chevron-left"></i></a></i></button>
         <h2 class="page-title">User Login</h2>
         <form id="loginForm">
-            <label for="name">Name: </label>
             <input type="text" name="" id="name" placeholder="Enter your name">
 
-            <label for="email">Email: </label>
             <input type="email" name="" id="email" placeholder="Enter your email">
 
-            <label for="aadhar">Aadhar Number:</label>
             <input type="text" id="aadhar" maxlength="12" required placeholder="Enter 12-digit Aadhar">
 
-            <label for="phone">Phone Number:</label>
             <input type="text" id="phone" maxlength="10" required placeholder="Enter 10-digit phone number">
 
-            <label for="password">Create Password:</label>
             <input type="password" id="password" required placeholder="Enter password">
 
             <div class="loginsignup">
                 <button type="submit">Signup</button>
-            <span>Already Registerd? <a href="login.html" style="color: #0073e6;">Login</a></span>
+                <span>Already Registerd? <a href="login.html" style="color: #0073e6;">Login</a></span>
             </div>
         </form>
 

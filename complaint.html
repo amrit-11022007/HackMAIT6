@@ -4,26 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Submit Complaint</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="complaint.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <h1>Citizen Complaint Portal</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="complaint.html">My Complaint</a></li>
-        <li><a href="community.html">Community Complaints</a></li>
-        <li><a href="./about us/about.html">About</a></li>
-        <li><a href="./contact/contact.html">Contact</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <div class="container">
+    <button class="back"><a href="index.html"><i class="fa-solid fa-chevron-left"></i></a></i></button>
     <h2 class="page-title">Submit Your Complaint</h2>
     <form id="complaintForm">
       <label>Title:</label>
@@ -42,10 +33,12 @@
       </select>
 
       <label>Upload Images:</label>
-      <input type="file" id="images" multiple accept="image/*">
-      <div class="image-preview" id="preview"></div>
+      <span class="imagesection">
+        <input type="file" id="images" multiple accept="image/*">
+        <div class="image-preview" id="preview"></div>
+      </span>
+      <button class="submitbtn" type="submit">Submit Complaint</button>
 
-      <button type="submit">Submit Complaint</button>
     </form>
   </div>
 
