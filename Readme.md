@@ -60,8 +60,8 @@ By improving citizen participation and institutional responsiveness, the portal 
 - 🔍 **Search Functionality**  
   Quickly find complaints by keyword or department.
 
-- 💾 **LocalStorage Integration**  
-  Stores user info, complaints, and updates without a backend.
+- 💾 **LocalStorage and Database Integration**  
+  Stores user info, complaints, and updates.
 
 - 🎨 **Responsive UI**  
   Clean, modern, and mobile-friendly design.
@@ -73,7 +73,7 @@ By improving citizen participation and institutional responsiveness, the portal 
 | Component | Technology Used |
 |------------|----------------|
 | Frontend | HTML5, CSS3, JavaScript, Flask, MySQL |
-| Storage | Browser `localStorage`, MySQl |
+| Storage | Browser `localStorage`, MySQL |
 | Design | Responsive layout with Flexbox and CSS Grid |
 | Validation | Regex for Aadhaar (12 digits) and Phone (10 digits) |
 
@@ -111,7 +111,7 @@ By improving citizen participation and institutional responsiveness, the portal 
 
 ## 🚀 Future Improvements
 
-- ✅ Real-time database (MongoDB / Firebase)
+- ✅ Real-time database ( MongoDB )
 - ✅ Role-based authentication (citizen / official)
 - ✅ Complaint tracking via ID
 - ✅ Integration with UIDAI API for Aadhaar verification
@@ -122,7 +122,13 @@ By improving citizen participation and institutional responsiveness, the portal 
 ## 👩‍💻 Contributors
 
 - **Amrit [Lead Developer & Designer]**  
-  Student | Web Developer | Passionate about civic technology and innovation.
+  Student | Web Developer | Loves exploring new ideas and solutions.
+- **Kartik [Back End Developer Developer & Pitcher]**  
+  Student | Back End Developer | Passionate about Data Science and Machine Learning.
+- **Aman [Front End Developer & Designer]**  
+  Student | Web Developer | Exploring the technologies and finding what suites him.
+- **Yash [App Developer & Pitcher]**  
+  Student | App Developer | Passionate about civic technology and innovation.
 
 ---
 
